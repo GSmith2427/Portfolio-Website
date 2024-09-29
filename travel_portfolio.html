@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel's Portfolio</title>
+    <link href >
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for animations */
+        .plane {
+            position: relative;
+            animation: takeOff 7s ease-in-out infinite;
+        }
+        @keyframes takeOff {
+            0% { left: -50%; top: 40%; }
+            50% { left: 50%; top: 10%; }
+            100% { left: 120%; top: -25%; }
+        }
+        /* Colors */
+        .bg-sky {
+            background: linear-gradient(to bottom, #87ceeb, #f0f8ff);
+        }
+        /* Add border and shadow for the boarding pass look */
+.bg-white {
+    background-color: rgb(195, 222, 238);
+    border-radius: 2px;
+    box-shadow: 0px 4px 19px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-lg, .rounded-t-lg, .rounded-b-lg {
+    border-radius: 16px;
+}
+
+/* For the top section, light background and space between name and image */
+.bg-blue-100 {
+    background-color: #f1f2f3;
+    padding: 23px;
+    display: flex;
+    justify-content: space-between;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.border-b-4 {
+    border-bottom-width: 16px;
+}
+
+/* Styling text, image, and links */
+.text-gray-800 {
+    color: #2d3748;
+}
+
+.text-gray-600 {
+    color: #2e5796;
+}
+
+.text-blue-500 {
+    color: #4299e1;
+}
+
+.text-blue-500:hover {
+    text-decoration: underline;
+}
+
+/* Rounded profile image */
+img.rounded-full {
+    border-radius: 9999px;
+    border: 2px solid rgb(255, 255, 255);
+    width: 9rem;
+    height: 9rem;
+}
+
+/* Footer, simulating bottom boarding pass cut-off */ 
+.bg-blue-100 {
+    background-color: #c4dfed;
+    text-align: center;
+    padding: 16px;
+    border-radius: 16px, 0, 12px, 0;
+}
+ </style>
+</head>
+<body class="bg-sky text-gray-800 font-sans">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-lg py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-default text-blue-700">My Travel Portfolio</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="hover:text-blue-500">About Me</a></li>
+                    <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+                    <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Intro: Plane animation -->
+    <section class="h-screen flex flex-col justify-center items-center relative">
+        <div class="absolute inset-0">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQBCAMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAADAAEEBQL/xAAZEAEBAQEBAQAAAAAAAAAAAAAAEhEBAlH/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAQMCBgX/xAAXEQEBAQEAAAAAAAAAAAAAAAAAERIB/9oADAMBAAIRAxEAPwDhxmFlS9G+MLFhJUgPFhJUgPGYWVICxYSWYA8WExSA8ZhcWALFhMUgPF3hMZgDxYTFgDxkkxYA5UkxYA5XfJMWAKVJcWALFhJUgPFhMWAPnETEDrlYWVLkFKksqSgpZJZUgLFhZUgLGSaWSApZJpZ3gClSXFJQUsk2KSgpZPDSpKBlkm75ZJQUsk0sxaDlkllSVQypLKkqClSXFJVFiwsqRAysNCkAyiylHZKksqWaixYWFIBlSXvlSEFKksqQFLJNjJAUqS4sKQUqSd8sko+JUklSUFKwkqSgu+VJO+VJQcvnDSyVoOVhM6pQFiwkqVQeMkuKQFKksqSqKWYaWYVBY0mIo7ZUmlkuK6FLJNKkoGVJpUlAypNLJKClkmlSUDKk3fLJWgZUmxSUDCgsqSgpZJpXfJQPfLJNKkqBlkmlSUDKk0skoGVJpXfJQEqTSpKBlSaWSUFjJNKxaBlGlJR3SpNKlnVDKk0qSgZUmlSUDKksqSgpZ3yaV3yUDLJPLJVYGVJpUhAQoPKkQEsk8qRYCWSfvlklIGVJu+WSUgpZJpZK0ge+VJpUFIGVJpZJSBlSaWSUgZUmlSUgZYaUUj0YUmlSzroEqTSpKBlSaVJQMqTSpKBlkmlSUBK74PKko54UnlSUgJUmlStAyyT98skpAd8qTyySkDLJPLJKQMqTSySkDKk0qSpA98sk0qSkBKk0qQDLJPLJAMo0paPRlSWVLGu4HvlSaWd8lIKVJueWSUgpUllQUgpZJpUlIGVJYUlSB75ZJu+VK0gZUllSUgZUmld8rSAlSaVJSBlkmlSUgZZJ5Z3yVAypLKkoKWd8mlnfJQMqTSySgZZJ5XfJQMsNKKPRlSXGYxrSDlSTFi0gu+VJcWFIKVJcWFIKVJcZhSClYXF3yUgZUllSUgpUFlSUgu+WSWV3ytSB75UmlSUgJUmlSUgZZJpUlIDvlSbvlStIDvlSeWd8lSBlkmlklIKWSaVJSBlGlhSPQlklxYxrWClSXFnCkFKkucWcKQU8U8LKkqQU8ZJZWFIKWSbvlSUgZU8NLJKQU8U8LKkpAysNLJXRBd8/GSaWSUgsZJpUlIHFJZZ3hSClnfJcWLUgpU8J3ixKCninhZZK0g54yS4yVpByiS1KkdiSZNUkgSSBJIEznEhG9YkCYkokkCSQM6klGJIGLEgWM7xITqxYkqPnqSFZixJUSSQf/9k=" class="object-cover w-full h-full" alt="Sky">
+        </div>
+        <div class="z-10 text-center">
+            <h2 class="text-4xl text-white font-semibold">Explore my Programming Journey!</h2>
+            <p class="text-lg text-gray-300 mt-2">Let’s take off and discover my projects!</p>
+        </div>
+        <img src="https://em-content.zobj.net/source/apple/271/airplane_2708-fe0f.png" alt="Plane" class="plane z-20 w-1/2 md:w-1/3 lg:w-1/4" style="width: 40px;">
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-12 bg-gray-100 flex justify-center">
+        <div class="bg-white shadow-lg rounded-lg max-w-2xl">
+            <div class="flex flex-row">
+                <!-- Left section: Personal details and image -->
+                <div class="flex-shrink-0 bg-blue-100 p-6 rounded-l-lg flex flex-col justify-between text-center items-center">
+                    <div>
+                        <img src="Images/IMG_4586.jpeg" alt="About Me" class="w-40 h-40 rounded-full border-2 border-white mb-4">
+                        <h2 class="text-2xl font-bold text-gray-800">Gabriel Smith</h2>
+                        <p class="text-gray-600">Software Engineer</p>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600">Location:</p>
+                        <p class="text-gray-800">London, United Kingdom</p>
+                    </div>
+                </div>
+    
+                <!-- Right section: Technologies, Contact Info, QR Code -->
+                <div class="flex-grow p-6">
+                    <!-- Contact Information -->
+                    <div class="grid grid-cols-2 gap-6 mb-4">
+                        <div>
+                            <p class="font-semibold text-gray-600">Email:</p>
+                            <a href="Gabrielsmith875@gmail.com" target="_blank" class="text-blue-500 hover:underline">
+                                Gabrielsmith875@gmail.com
+                            </a>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-600">LinkedIn:</p>
+                            <a href="http://linkedin.com/in/gabriel-s-72698a186" target="_blank" class="text-blue-500 hover:underline">
+                                http://linkedin.com/in/gabriel-s-72698a186
+                            </a>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-600">GitHub:</p>
+                            <a href=" https://github.com/GSmith2427" target="_blank" class="text-blue-500 hover:underline">
+                                https://github.com/GSmith2427
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!-- Technologies Section -->
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Technologies I Know</h3>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <p class="text-gray-800 font-semibold">HTML</p>
+                            <img src="https://via.placeholder.com/50" alt="HTML" class="mx-auto">
+                        </div>
+                        <div class="text-center">
+                            <p class="text-gray-800 font-semibold">CSS</p>
+                            <img src="https://via.placeholder.com/50" alt="CSS" class="mx-auto">
+                        </div>
+                        <div class="text-center">
+                            <p class="text-gray-800 font-semibold">JavaScript</p>
+                            <img src="https://via.placeholder.com/50" alt="JavaScript" class="mx-auto">
+                        </div>
+                        <!-- Add more technologies as needed -->
+                    </div>
+    
+                    <!-- QR Code Section -->
+                    <div class="text-center mt-6">
+                        <img src="Images/qr-code.png" alt="QR Code for CV" class="w-24 h-24 mx-auto mt-2">
+                        <p class="text-black-700 mt-7">Boarding Pass</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-blue-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-green-600">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8">
+                <!-- Project 1 -->
+                <div class="bg-white shadow-lg p-6 rounded-lg">
+                    <img src="https://source.unsplash.com/random/400x300?code" alt="Project 1" class="rounded-lg">
+                    <h3 class="text-2xl mt-4">Travel Guide Web App</h3>
+                    <p class="text-gray-700 mt-2">A simple web app, designed to give users information on the weather, and hotel recommendations for their desired destinations.</p>
+                    <a href="#" class="text-blue-500 underline mt-4 block">View Project</a>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-white shadow-lg p-6 rounded-lg">
+                    <img src="https://source.unsplash.com/random/400x300?tech" alt="Project 2" class="rounded-lg">
+                    <h3 class="text-2xl mt-4">Vision For Ewell</h3>
+                    <p class="text-gray-700 mt-2">Description of your second project. Reliable, responsive, and creative.</p>
+                    <a href="#" class="text-blue-500 underline mt-4 block">View Project</a>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-white shadow-lg p-6 rounded-lg">
+                    <img src="https://source.unsplash.com/random/400x300?programming" alt="Project 3" class="rounded-lg">
+                    <h3 class="text-2xl mt-4">E-Commerce Website</h3>
+                    <p class="text-gray-700 mt-2">Description of your third project. Scalable, intuitive, and fun.</p>
+                    <a href="#" class="text-blue-500 underline mt-4 block">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-green-600">Contact Me</h2>
+            <p class="mt-4">Feel free to reach out for collaboration or just a friendly chat!</p>
+            <form class="mt-8 max-w-lg mx-auto space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none">
+                <input type="email" placeholder="Your Email" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none">
+                <textarea placeholder="Your Message" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none" rows="4"></textarea>
+                <button class="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-700">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-white text-center">
+        <p>&copy; 2024 John Doe. All rights reserved.</p>
+    </footer>
+</body>
+</html>
